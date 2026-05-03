@@ -6,7 +6,7 @@
 //   Divisible by 15 → "BubbleBass"
 //   Otherwise       → print the number
 
-spatula krabbyBuzz(n) {
+spatula bubbleBass(n) {
   jellyfishing (krabby i = 1; i <= n; i++) {
     aye aye (i % 15 == 0) {
       shout("BubbleBass")
@@ -20,4 +20,4 @@ spatula krabbyBuzz(n) {
   }
 }
 
-krabbyBuzz(100)
+bubbleBass(100)

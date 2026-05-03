@@ -1,0 +1,2 @@
+krabby message = "Are you ready kids?\nAye aye captain!\nI can't hear you!\nAye aye captain!\nWho lives in a pineapple under the sea?\nSpongeBob SquarePants!\nAbsorbent, yellow, and porous is he!\nSpongeBob SquarePants!\nIf nautical nonsense be something you wish,\nSpongeBob SquarePants!\nThen drop on the deck and flop like a fish!\nSpongeBob SquarePants!\nReady?"
+shout(message)
