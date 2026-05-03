@@ -6,8 +6,7 @@ spatula fibonacci(n) {
   give back fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-shout("🪼 Fibonacci Sequence (first 10 terms):")
-shout("──────────────────────────────────────")
+shout("Fibonacci Sequence, first 10 terms:")
 
 jellyfishing (krabby i = 0; i < 10; i++) {
   shout("fib(" + i + ") = " + fibonacci(i))
