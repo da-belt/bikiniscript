@@ -1,0 +1,18 @@
+WAV file exists: true
+WAV path: C:\Users\49ers\OneDrive\Documents\Code\bikiniscript\sounds\bubbles.wav
+Platform: win32
+
+--- SoundPlayer.PlaySync (old, broken) ---
+EXIT CODE: 0
+
+--- winmm PlaySound async (current approach) ---
+EXIT CODE: 0
+STDOUT: PlaySound result: True
+
+--- winmm PlaySound SYNC (backslash path) ---
+EXIT CODE: 0
+STDOUT: PlaySound result: True
+
+--- cmd start with default app ---
+EXIT CODE: 1
+STDERR: Access is denied.
