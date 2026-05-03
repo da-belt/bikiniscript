@@ -15,8 +15,15 @@
     "repl": "node bin/bikiniscript.js"
   },
   "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.45.0",
+    "dotenv": "^16.4.5",
     "play-sound": "^1.1.6"
   },
-  "keywords": ["language", "interpreter", "spongebob", "fun"],
+  "keywords": [
+    "language",
+    "interpreter",
+    "spongebob",
+    "fun"
+  ],
   "license": "MIT"
 }
