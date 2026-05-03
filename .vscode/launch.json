@@ -1,0 +1,68 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "▶ Run Current .bs File",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${file}"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🧽 Run FizzBuzz",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${workspaceFolder}/examples/fizzbuzz.bs"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🌊 Run Hello World",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${workspaceFolder}/examples/hello.bs"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🦀 Run Krusty Krab",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${workspaceFolder}/examples/krusty.bs"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🪼 Run Fibonacci",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${workspaceFolder}/examples/fibonacci.bs"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🐚 Start REPL",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🔍 Debug Interpreter (current file)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/bin/bikiniscript.js",
+      "args": ["${file}"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": { "BS_DEBUG": "1" }
+    }
+  ]
+}

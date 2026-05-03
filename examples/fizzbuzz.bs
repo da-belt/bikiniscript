@@ -1,0 +1,23 @@
+// BikiniScript BubbleBass
+//
+// Rules:
+//   Divisible by 3  → "Bubble"
+//   Divisible by 5  → "Bass"
+//   Divisible by 15 → "BubbleBass"
+//   Otherwise       → print the number
+
+spatula krabbyBuzz(n) {
+  jellyfishing (krabby i = 1; i <= n; i++) {
+    aye aye (i % 15 == 0) {
+      shout("BubbleBass")
+    } nay nay aye aye (i % 3 == 0) {
+      shout("Bubble")
+    } nay nay aye aye (i % 5 == 0) {
+      shout("Bass")
+    } nay nay {
+      shout(i)
+    }
+  }
+}
+
+krabbyBuzz(100)

@@ -1,0 +1,41 @@
+// 🧽 BikiniScript — The Krusty Krab Order System
+// Demonstrates: crusty classes, spatula methods, self, NetBag arrays
+
+crusty KrustyKrab {
+  spatula new(owner) {
+    self.owner  = owner
+    self.orders = NetBag[]
+    self.money  = 0
+  }
+
+  spatula takeOrder(item, price) {
+    self.orders.push(item)
+    self.money += price
+    shout(self.owner + " says: Order received -- " + item + " ($" + price + ")")
+  }
+
+  spatula totalOrders() {
+    give back self.orders.length
+  }
+
+  spatula printReceipt() {
+    shout("=== Krusty Krab Receipt ===")
+    jellyfishing (krabby i = 0; i < self.orders.length; i++) {
+      shout("  - " + self.orders[i])
+    }
+    shout("Total earned: $" + self.money)
+    shout("===========================")
+  }
+}
+
+// Open for business!
+krabby restaurant = crusty KrustyKrab("Mr. Krabs")
+
+restaurant.takeOrder("Krabby Patty", 2)
+restaurant.takeOrder("Kelp Shake", 1)
+restaurant.takeOrder("Coral Bits", 3)
+
+shout("")
+shout("Total orders: " + restaurant.totalOrders())
+shout("")
+restaurant.printReceipt()

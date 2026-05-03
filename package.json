@@ -1,0 +1,19 @@
+{
+  "name": "bikiniscript",
+  "version": "1.0.0",
+  "description": "A Sponge-tacular programming language for the bottom of the sea 🧽",
+  "main": "src/interpreter.js",
+  "bin": {
+    "bikiniscript": "./bin/bikiniscript.js"
+  },
+  "scripts": {
+    "start": "node bin/bikiniscript.js",
+    "fizzbuzz": "node bin/bikiniscript.js examples/fizzbuzz.bs",
+    "hello": "node bin/bikiniscript.js examples/hello.bs",
+    "krusty": "node bin/bikiniscript.js examples/krusty.bs",
+    "fibonacci": "node bin/bikiniscript.js examples/fibonacci.bs",
+    "repl": "node bin/bikiniscript.js"
+  },
+  "keywords": ["language", "interpreter", "spongebob", "fun"],
+  "license": "MIT"
+}

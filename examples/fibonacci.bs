@@ -1,0 +1,25 @@
+// 🧽 BikiniScript — Jellyfishing Fibonacci
+// Demonstrates: recursion, give back, loops, string concat
+
+spatula fibonacci(n) {
+  aye aye (n <= 1) { give back n }
+  give back fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+shout("🪼 Fibonacci Sequence (first 10 terms):")
+shout("──────────────────────────────────────")
+
+jellyfishing (krabby i = 0; i < 10; i++) {
+  shout("fib(" + i + ") = " + fibonacci(i))
+}
+
+// Bonus: find the first fib number over 100
+shout("")
+shout("First fibonacci number over 100:")
+krabby idx = 0
+krabby result = 0
+jellyfishing (krabby j = 0; result <= 100; j++) {
+  result = fibonacci(j)
+  idx = j
+}
+shout("fib(" + idx + ") = " + result)

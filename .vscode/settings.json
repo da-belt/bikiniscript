@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "*.bs": "javascript"
+  },
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "bs": "node ${workspaceFolder}/bin/bikiniscript.js"
+  },
+  "code-runner.fileDirectoryAsTempDirectoryPrefix": true,
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
