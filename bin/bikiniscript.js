@@ -8,6 +8,7 @@ const { spawn, execFileSync } = require('child_process');
 const { Lexer }        = require('../src/lexer');
 const { Parser }       = require('../src/parser');
 const { Interpreter }  = require('../src/interpreter');
+const { TtsManager }   = require('../src/tts');
 
 // ─── Fast Windows audio player (compile-once C# binary) ──────────────────────
 // csc.exe ships with .NET Framework on every Windows machine. We compile a tiny
@@ -113,8 +114,12 @@ function playBubbles() {
   }
 }
 
+// ─── TTS narration (random SpongeBob character voice via ElevenLabs) ────────
+const tts = new TtsManager();
+tts.init();
+
 // ─── Shared interpreter (keeps state across REPL lines) ─────────────────────
-const interpreter = new Interpreter();
+const interpreter = new Interpreter(tts);
 
 // ─── Run a source string ─────────────────────────────────────────────────────
 function run(source, filename = '<input>') {
@@ -141,8 +146,8 @@ if (args.length > 0) {
   }
   playBubbles(); // 🫧 play sound before running the program
   run(fs.readFileSync(file, 'utf8'), file);
-  // No process.exit() — Node stays alive until the audio child exits,
-  // preventing VS Code's job object from killing it prematurely.
+  tts.drain(); // keep event loop alive until all TTS audio finishes
+  // No process.exit() — Node stays alive until audio child processes exit.
 
 } else {
   // ─── REPL mode ─────────────────────────────────────────────────────────────

@@ -93,17 +93,20 @@ class BikiniInstance {
 
 // ─── Interpreter ─────────────────────────────────────────────────────────────
 class Interpreter {
-  constructor() {
+  constructor(tts = null) {
     this.globals = new Environment();
+    this.tts     = tts;
     this._registerBuiltins();
   }
 
   _registerBuiltins() {
     const g = this.globals;
 
-    // shout(...) — print to stdout
+    // shout(...) — print to stdout and queue TTS narration
     g.define('shout', { isFn: true, call: (interp, args) => {
-      console.log(...args.map(a => interp.stringify(a)));
+      const text = args.map(a => interp.stringify(a)).join(' ');
+      console.log(text);
+      if (interp.tts) interp.tts.enqueue(text);
       return null;
     }});
 
