@@ -1,4 +1,4 @@
-# 🧽 BikiniScript
+# BikiniScript
 
 > *"I'm ready! I'm ready to code!"* — SpongeBob SquarePants
 
@@ -7,7 +7,7 @@ BikiniScript is a fully working tree-walking interpreter written in Node.js.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 bikiniscript/
@@ -31,7 +31,7 @@ bikiniscript/
 
 ---
 
-## 🚀 Getting Started in VS Code
+## Getting Started in VS Code
 
 ### Step 1 — Prerequisites
 
@@ -82,7 +82,7 @@ npm run repl        # Interactive REPL
 
 ---
 
-## 🌊 The Language
+## The Language
 
 ### Variables — `krabby`
 
@@ -198,7 +198,7 @@ shout(s.length)            // 12
 
 ---
 
-## 🐚 Interactive REPL
+## Interactive REPL
 
 ```bash
 npm run repl
@@ -207,8 +207,8 @@ node bin/bikiniscript.js
 ```
 
 ```
-  🧽  BikiniScript v1.0.0 — Interactive REPL
-  🌊  Type BikiniScript code and press Enter.
+  BikiniScript v1.0.0 — Interactive REPL
+  Type BikiniScript code and press Enter.
 
 🌊 > krabby x = 42
 🌊 > shout(x * 2)
@@ -219,7 +219,7 @@ node bin/bikiniscript.js
 
 ---
 
-## 🔧 Debugging
+## Debugging
 
 - **BS_DEBUG=1** — prints full stack traces on errors:
 
@@ -232,7 +232,7 @@ BS_DEBUG=1 node bin/bikiniscript.js examples/fizzbuzz.bs
 
 ---
 
-## 🗺️ How It Works (Pipeline)
+## How It Works (Pipeline)
 
 ```
   Source (.bs file)
@@ -258,7 +258,7 @@ BS_DEBUG=1 node bin/bikiniscript.js examples/fizzbuzz.bs
 
 ---
 
-## 💡 Next Steps to Extend the Language
+## Next Steps to Extend the Language
 
 | Feature            | Where to add it                                      |
 |--------------------|------------------------------------------------------|
