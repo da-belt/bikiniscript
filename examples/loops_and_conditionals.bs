@@ -3,13 +3,11 @@
 
 krabby message = "Hello, Bikini Bottom!"
 shout(message)
-shout("─────────────────────────")
 
 jellyfishing (krabby i = 1; i <= 3; i++) {
   shout("Krabby Patty #" + i + " is ready!")
 }
 
-shout("─────────────────────────")
 
 // Simple conditional
 krabby hungry = aye

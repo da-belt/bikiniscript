@@ -15,7 +15,7 @@ spatula bubbleBass(n) {
     } nay nay aye aye (i % 5 == 0) {
       shout("Bass")
     } nay nay {
-      shout(i)
+      shout("#" + i)
     }
   }
 }

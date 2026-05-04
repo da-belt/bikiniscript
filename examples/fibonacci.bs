@@ -9,7 +9,7 @@ spatula fibonacci(n) {
 shout("Fibonacci Sequence, first 10 terms:")
 
 jellyfishing (krabby i = 0; i < 10; i++) {
-  shout("fib(" + i + ") = " + fibonacci(i))
+  shout("fib(" + i + ") equals #" + fibonacci(i))
 }
 
 // Bonus: find the first fib number over 100
@@ -21,4 +21,4 @@ jellyfishing (krabby j = 0; result <= 100; j++) {
   result = fibonacci(j)
   idx = j
 }
-shout("fib(" + idx + ") = " + result)
+shout("fib(" + idx + ") equals #" + result)
