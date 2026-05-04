@@ -11,7 +11,7 @@ crusty KrustyKrab {
   spatula takeOrder(item, price) {
     self.orders.push(item)
     self.money += price
-    shout(self.owner + " says: Order received  " + item + " " + price + "$")
+    shout(self.owner + " says: Order received -- " + item + " ($" + price + ")")
   }
 
   spatula totalOrders() {
@@ -19,11 +19,11 @@ crusty KrustyKrab {
   }
 
   spatula printReceipt() {
-    shout(" Krusty Krab Receipt ")
+    shout("Krusty Krab Receipt ")
     jellyfishing (krabby i = 0; i < self.orders.length; i++) {
       shout("  - " + self.orders[i])
     }
-    shout("Total earned: " + self.money + "$")
+    shout("Total earned: $" + self.money)
   }
 }
 
