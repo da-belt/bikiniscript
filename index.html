@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BikiniScript</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #e8f4f8;
+      color: #1a2e3b;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #0077b6 0%, #00b4d8 60%, #90e0ef 100%);
+      text-align: center;
+      padding: 60px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '🌊';
+      font-size: 80px;
+      position: absolute;
+      top: 10px; left: 10px;
+      opacity: 0.15;
+    }
+
+    header::after {
+      content: '🌊';
+      font-size: 80px;
+      position: absolute;
+      top: 10px; right: 10px;
+      opacity: 0.15;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      letter-spacing: -1px;
+    }
+
+    header .tagline {
+      font-size: 1.15rem;
+      color: #caf0f8;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .repo-btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 32px;
+      background: #ffd166;
+      color: #1a2e3b;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    .repo-btn:hover {
+      background: #ffbe0b;
+      transform: translateY(-2px);
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0077b6;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #2d4a5a;
+      max-width: 680px;
+    }
+
+    /* ── Keyword table ── */
+    .keywords {
+      margin-top: 36px;
+    }
+
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .kw-card {
+      background: #fff;
+      border: 1px solid #cde8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .kw-name {
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      color: #0077b6;
+      font-size: 0.95rem;
+    }
+
+    .kw-meaning {
+      font-size: 0.85rem;
+      color: #5a7a8a;
+    }
+
+    /* ── Examples ── */
+    .examples {
+      margin-top: 48px;
+    }
+
+    .example {
+      background: #fff;
+      border: 1px solid #cde8f0;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: 0 2px 10px rgba(0,119,182,0.07);
+    }
+
+    .example-header {
+      background: #0077b6;
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .example pre {
+      margin: 0;
+      padding: 22px 24px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      overflow-x: auto;
+      color: #1a2e3b;
+      background: #f5fbfd;
+    }
+
+    /* simple syntax colouring via <span> */
+    .kw  { color: #0077b6; font-weight: 700; }
+    .cm  { color: #8aa8b5; font-style: italic; }
+    .str { color: #c0392b; }
+    .num { color: #d35400; }
+    .fn  { color: #6c3483; font-weight: 600; }
+
+    /* ── Install ── */
+    .install {
+      margin-top: 48px;
+    }
+
+    .install pre {
+      background: #1a2e3b;
+      color: #caf0f8;
+      padding: 18px 22px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 0.85rem;
+      color: #7a9aaa;
+      border-top: 1px solid #cde8f0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧽 BikiniScript</h1>
+  <p class="tagline">"I'm ready! I'm ready to code!" : SpongeBob SquarePants</p>
+  <a class="repo-btn" href="https://github.com/da-belt/bikiniscript" target="_blank">
+    ⭐ View on GitHub
+  </a>
+</header>
+
+<main>
+
+  <!-- Description -->
+  <section>
+    <p class="section-title">What is BikiniScript?</p>
+    <p class="description">
+      BikiniScript is a fully working, tree-walking interpreter written in Node.js : themed entirely
+      around <em>SpongeBob SquarePants</em>. It supports variables, functions, classes, loops,
+      conditionals, arrays, and recursion. All of the keywords are underwater-flavored, so you declare
+      variables with <code>krabby</code>, write functions with <code>spatula</code>, and loop with
+      <code>jellyfishing</code>. It's a complete, usable language living at the bottom of the sea.
+    </p>
+  </section>
+
+  <!-- Keywords -->
+  <section class="keywords">
+    <p class="section-title">The Language at a Glance</p>
+    <div class="keyword-grid">
+      <div class="kw-card"><span class="kw-name">krabby</span>    <span class="kw-meaning">variable</span></div>
+      <div class="kw-card"><span class="kw-name">spatula</span>   <span class="kw-meaning">function</span></div>
+      <div class="kw-card"><span class="kw-name">give back</span> <span class="kw-meaning">return</span></div>
+      <div class="kw-card"><span class="kw-name">aye aye</span>   <span class="kw-meaning">if</span></div>
+      <div class="kw-card"><span class="kw-name">nay nay</span>   <span class="kw-meaning">else</span></div>
+      <div class="kw-card"><span class="kw-name">jellyfishing</span><span class="kw-meaning">for loop</span></div>
+      <div class="kw-card"><span class="kw-name">crusty</span>    <span class="kw-meaning">class</span></div>
+      <div class="kw-card"><span class="kw-name">aye / nay</span> <span class="kw-meaning">true / false</span></div>
+      <div class="kw-card"><span class="kw-name">plankton</span>  <span class="kw-meaning">null</span></div>
+      <div class="kw-card"><span class="kw-name">NetBag[]</span>  <span class="kw-meaning">array</span></div>
+      <div class="kw-card"><span class="kw-name">shout()</span>   <span class="kw-meaning">print</span></div>
+      <div class="kw-card"><span class="kw-name">self</span>      <span class="kw-meaning">this</span></div>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section class="examples">
+    <p class="section-title">Example Programs</p>
+
+    <!-- Hello Bikini Bottom -->
+    <div class="example">
+      <div class="example-header">🍔 hello.bs : Hello, Bikini Bottom!</div>
+      <pre><span class="cm">// Variables, loops, and conditionals</span>
+
+<span class="kw">jellyfishing</span> (<span class="kw">krabby</span> i = <span class="num">1</span>; i &lt;= <span class="num">3</span>; i++) {
+  <span class="fn">shout</span>(<span class="str">"Krabby Patty #"</span> + i + <span class="str">" is ready!"</span>)
+}
+
+<span class="kw">krabby</span> hungry = <span class="kw">aye</span>
+<span class="kw">aye aye</span> (hungry) {
+  <span class="fn">shout</span>(<span class="str">"I'm ready! I'm ready! Time to make patties!"</span>)
+} <span class="kw">nay nay</span> {
+  <span class="fn">shout</span>(<span class="str">"Not hungry... which never happens."</span>)
+}</pre>
+    </div>
+
+    <!-- BubbleBass -->
+    <div class="example">
+      <div class="example-header">🫧 fizzbuzz.bs : BubbleBass</div>
+      <pre><span class="cm">// Divisible by 3 → "Bubble", by 5 → "Bass", by 15 → "BubbleBass"</span>
+
+<span class="kw">spatula</span> <span class="fn">bubbleBass</span>(n) {
+  <span class="kw">jellyfishing</span> (<span class="kw">krabby</span> i = <span class="num">1</span>; i &lt;= n; i++) {
+    <span class="kw">aye aye</span> (i % <span class="num">15</span> == <span class="num">0</span>) {
+      <span class="fn">shout</span>(<span class="str">"BubbleBass"</span>)
+    } <span class="kw">nay nay aye aye</span> (i % <span class="num">3</span> == <span class="num">0</span>) {
+      <span class="fn">shout</span>(<span class="str">"Bubble"</span>)
+    } <span class="kw">nay nay aye aye</span> (i % <span class="num">5</span> == <span class="num">0</span>) {
+      <span class="fn">shout</span>(<span class="str">"Bass"</span>)
+    } <span class="kw">nay nay</span> {
+      <span class="fn">shout</span>(i)
+    }
+  }
+}
+
+<span class="fn">bubbleBass</span>(<span class="num">100</span>)</pre>
+    </div>
+
+    <!-- Fibonacci -->
+    <div class="example">
+      <div class="example-header">🌀 fibonacci.bs : Jellyfishing Fibonacci</div>
+      <pre><span class="cm">// Recursion + loops</span>
+
+<span class="kw">spatula</span> <span class="fn">fibonacci</span>(n) {
+  <span class="kw">aye aye</span> (n &lt;= <span class="num">1</span>) { <span class="kw">give back</span> n }
+  <span class="kw">give back</span> <span class="fn">fibonacci</span>(n - <span class="num">1</span>) + <span class="fn">fibonacci</span>(n - <span class="num">2</span>)
+}
+
+<span class="fn">shout</span>(<span class="str">"Fibonacci Sequence, first 10 terms:"</span>)
+
+<span class="kw">jellyfishing</span> (<span class="kw">krabby</span> i = <span class="num">0</span>; i &lt; <span class="num">10</span>; i++) {
+  <span class="fn">shout</span>(<span class="str">"fib("</span> + i + <span class="str">") = "</span> + <span class="fn">fibonacci</span>(i))
+}</pre>
+    </div>
+
+  </section>
+
+  <!-- Install -->
+  <section class="install">
+    <p class="section-title">Try It Yourself</p>
+    <p class="description">Clone the repo and run any <code>.bs</code> file with Node.js:</p>
+    <pre>git clone https://github.com/da-belt/bikiniscript.git
+cd bikiniscript
+node bin/bikiniscript.js examples/fizzbuzz.bs</pre>
+  </section>
+
+</main>
+
+<footer>
+  BikiniScript : built for the bottom of the sea 🌊
+</footer>
+
+</body>
+</html>
