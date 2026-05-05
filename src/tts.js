@@ -15,8 +15,17 @@ const CHARACTERS = [
   { name: 'Mr. Krabs',             voiceId: process.env.VOICE_ID_MRKRABS   },
 ];
 
+const FILE_VOICE_MAP = {
+  'hello':                  process.env.VOICE_ID_SPONGEBOB,
+  'RUready':                process.env.VOICE_ID_SPONGEBOB,
+  'fizzbuzz':               process.env.VOICE_ID_PATRICK,
+  'loops_and_conditionals': process.env.VOICE_ID_PATRICK,
+  'krusty':                 process.env.VOICE_ID_MRKRABS,
+  'fibonacci':              process.env.VOICE_ID_SQUIDWARD,
+};
+
 class TtsManager {
-  constructor() {
+  constructor(filename = null) {
     const apiKey  = process.env.ELEVENLABS_API_KEY;
     this.enabled  = !!apiKey;
 
@@ -25,9 +34,12 @@ class TtsManager {
       this.client = new ElevenLabsClient({ apiKey });
     }
 
-    const available = CHARACTERS.filter(c => c.voiceId);
-    const pool      = available.length > 0 ? available : CHARACTERS;
-    this.character  = pool[Math.floor(Math.random() * pool.length)];
+    const basename   = filename ? path.basename(filename, path.extname(filename)) : null;
+    const mappedId   = basename ? FILE_VOICE_MAP[basename] : null;
+    const mapped     = mappedId ? CHARACTERS.find(c => c.voiceId === mappedId) : null;
+    const available  = CHARACTERS.filter(c => c.voiceId);
+    const pool       = available.length > 0 ? available : CHARACTERS;
+    this.character   = mapped || pool[Math.floor(Math.random() * pool.length)];
 
     this.queue         = [];
     this.running       = false;

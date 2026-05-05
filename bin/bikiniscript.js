@@ -114,8 +114,11 @@ function playBubbles() {
   }
 }
 
-// ─── TTS narration (random SpongeBob character voice via ElevenLabs) ────────
-const tts = new TtsManager();
+// ─── Entry point args (needed early so TTS can pick voice by filename) ───────
+const args = process.argv.slice(2);
+
+// ─── TTS narration (character voice assigned by filename via ElevenLabs) ─────
+const tts = new TtsManager(args[0] || null);
 tts.init();
 
 // ─── Shared interpreter (keeps state across REPL lines) ─────────────────────
@@ -135,7 +138,6 @@ function run(source, filename = '<input>') {
 }
 
 // ─── Entry point ─────────────────────────────────────────────────────────────
-const args = process.argv.slice(2);
 
 if (args.length > 0) {
   // ─── File mode ─────────────────────────────────────────────────────────────
