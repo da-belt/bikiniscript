@@ -113,22 +113,34 @@ class TtsManager {
 
   _playMp3(filePath) {
     return new Promise((resolve, reject) => {
-      const fwdPath = path.resolve(filePath).replace(/\\/g, '/');
-      const psCmd = [
-        'Add-Type -AssemblyName PresentationCore',
-        '$p = New-Object System.Windows.Media.MediaPlayer',
-        `$p.Open([System.Uri]::new('file:///${fwdPath}'))`,
-        '$p.Play()',
-        '$t = [DateTime]::Now.AddSeconds(10)',
-        'while (-not $p.NaturalDuration.HasTimeSpan -and [DateTime]::Now -lt $t) { Start-Sleep -Milliseconds 50 }',
-        'if ($p.NaturalDuration.HasTimeSpan) { Start-Sleep -Milliseconds ([int]$p.NaturalDuration.TimeSpan.TotalMilliseconds) } else { Start-Sleep -Seconds 3 }'
-      ].join('; ');
+      const absPath = path.resolve(filePath);
+      let cmd, args;
 
-      const proc = spawn('powershell.exe', [
-        '-NoProfile', '-STA', '-WindowStyle', 'Hidden', '-Command', psCmd
-      ], { stdio: 'ignore', windowsHide: true });
+      if (os.platform() === 'darwin') {
+        cmd  = 'afplay';
+        args = [absPath];
+      } else if (os.platform() === 'win32') {
+        const fwdPath = absPath.replace(/\\/g, '/');
+        const psCmd = [
+          'Add-Type -AssemblyName PresentationCore',
+          '$p = New-Object System.Windows.Media.MediaPlayer',
+          `$p.Open([System.Uri]::new('file:///${fwdPath}'))`,
+          '$p.Play()',
+          '$t = [DateTime]::Now.AddSeconds(10)',
+          'while (-not $p.NaturalDuration.HasTimeSpan -and [DateTime]::Now -lt $t) { Start-Sleep -Milliseconds 50 }',
+          'if ($p.NaturalDuration.HasTimeSpan) { Start-Sleep -Milliseconds ([int]$p.NaturalDuration.TimeSpan.TotalMilliseconds) } else { Start-Sleep -Seconds 3 }'
+        ].join('; ');
+        cmd  = 'powershell.exe';
+        args = ['-NoProfile', '-STA', '-WindowStyle', 'Hidden', '-Command', psCmd];
+      } else {
+        cmd  = 'mpg123';
+        args = ['-q', absPath];
+      }
 
-      proc.on('close', code => code === 0 ? resolve() : reject(new Error(`PowerShell exit ${code}`)));
+      const opts = os.platform() === 'win32' ? { stdio: 'ignore', windowsHide: true } : { stdio: 'ignore' };
+      const proc = spawn(cmd, args, opts);
+
+      proc.on('close', code => code === 0 ? resolve() : reject(new Error(`Player exit ${code}`)));
       proc.on('error', reject);
     });
   }
