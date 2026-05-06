@@ -1,4 +1,4 @@
-// 🧽 BikiniScript — The Krusty Krab Order System
+// BikiniScript — The Krusty Krab Order System
 // Demonstrates: crusty classes, spatula methods, self, NetBag arrays
 
 crusty KrustyKrab {

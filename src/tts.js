@@ -19,7 +19,8 @@ const FILE_VOICE_MAP = {
   'hello':                  process.env.VOICE_ID_SPONGEBOB,
   'RUready':                process.env.VOICE_ID_SPONGEBOB,
   'fizzbuzz':               process.env.VOICE_ID_PATRICK,
-  'loops_and_conditionals': process.env.VOICE_ID_PATRICK,
+  'fizzbuzz_demo':          process.env.VOICE_ID_PATRICK,
+  'Dirty_dan':              process.env.VOICE_ID_PATRICK,
   'krusty':                 process.env.VOICE_ID_MRKRABS,
   'fibonacci':              process.env.VOICE_ID_SQUIDWARD,
 };

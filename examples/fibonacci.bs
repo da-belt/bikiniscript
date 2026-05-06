@@ -1,4 +1,4 @@
-// 🧽 BikiniScript — Jellyfishing Fibonacci
+// BikiniScript — Jellyfishing Fibonacci
 // Demonstrates: recursion, give back, loops, string concat
 
 spatula fibonacci(n) {

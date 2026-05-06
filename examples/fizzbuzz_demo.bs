@@ -1,0 +1,20 @@
+// BikiniScript BubbleBass — demo
+// Shows all four cases with just four numbers
+
+spatula bubbleBass(i) {
+  aye aye (i % 15 == 0) {
+    shout("BubbleBass")
+  } nay nay aye aye (i % 3 == 0) {
+    shout("Bubble")
+  } nay nay aye aye (i % 5 == 0) {
+    shout("Bass")
+  } nay nay {
+    shout(i)
+  }
+}
+
+krabby demo = NetBag[1, 3, 5, 15]
+
+jellyfishing (krabby i = 0; i < demo.length; i++) {
+  bubbleBass(demo[i])
+}

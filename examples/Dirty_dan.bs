@@ -1,0 +1,12 @@
+// Patrick hype machine
+
+spatula hype(n) {
+  aye aye (n <= 0) { give back "" }
+  give back "I'm dirty dan! " + hype(n - 1)
+}
+
+shout("Who you calling pin head?")
+shout("")
+shout(hype(1))
+shout(hype(3))
+shout(hype(5))
