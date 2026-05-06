@@ -1,0 +1,33 @@
+{
+  "name": "bikini-bottom-theme",
+  "displayName": "Bikini Bottom Theme",
+  "description": "SpongeBob SquarePants dark theme for VS Code — built for BikiniScript and beyond",
+  "version": "1.0.0",
+  "publisher": "bikiniscript",
+  "engines": { "vscode": "^1.60.0" },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Bikini Bottom — SpongeBob",
+        "uiTheme": "vs-dark",
+        "path": "./themes/spongebob-color-theme.json"
+      },
+      {
+        "label": "Bikini Bottom — Patrick",
+        "uiTheme": "vs-dark",
+        "path": "./themes/patrick-color-theme.json"
+      },
+      {
+        "label": "Bikini Bottom — Mr. Krabs",
+        "uiTheme": "vs-dark",
+        "path": "./themes/mrkrabs-color-theme.json"
+      },
+      {
+        "label": "Bikini Bottom — Squidward",
+        "uiTheme": "vs-dark",
+        "path": "./themes/squidward-color-theme.json"
+      }
+    ]
+  }
+}
