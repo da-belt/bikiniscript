@@ -1,20 +1,32 @@
 // BikiniScript BubbleBass — demo
-// Shows all four cases with just four numbers
+// Patrick says exactly: 1, Bubble, Bass, BubbleBass — everything else just displays
 
 spatula bubbleBass(i) {
   aye aye (i % 15 == 0) {
-    shout("BubbleBass")
+    aye aye (i == 15) {
+      shout("BubbleBass")
+    } nay nay {
+      mumble("BubbleBass")
+    }
   } nay nay aye aye (i % 3 == 0) {
-    shout("Bubble")
+    aye aye (i == 3) {
+      shout("Bubble")
+    } nay nay {
+      mumble("Bubble")
+    }
   } nay nay aye aye (i % 5 == 0) {
-    shout("Bass")
-  } nay nay {
+    aye aye (i == 5) {
+      shout("Bass")
+    } nay nay {
+      mumble("Bass")
+    }
+  } nay nay aye aye (i == 1) {
     shout(i)
+  } nay nay {
+    mumble(i)
   }
 }
 
-krabby demo = NetBag[1, 3, 5, 15]
-
-jellyfishing (krabby i = 0; i < demo.length; i++) {
-  bubbleBass(demo[i])
+jellyfishing (krabby i = 1; i <= 100; i++) {
+  bubbleBass(i)
 }

@@ -59,6 +59,23 @@ function ensureAudioPlayer() {
   return fs.existsSync(playerExe) ? playerExe : null;
 }
 
+// ─── Read WAV duration from header ───────────────────────────────────────────
+function getWavDurationMs(filePath) {
+  try {
+    const buf = fs.readFileSync(filePath);
+    if (buf.length < 44 || buf.slice(0, 4).toString() !== 'RIFF') return 0;
+    const byteRate = buf.readUInt32LE(28);
+    let offset = 12;
+    while (offset + 8 <= buf.length) {
+      const id   = buf.slice(offset, offset + 4).toString();
+      const size = buf.readUInt32LE(offset + 4);
+      if (id === 'data') return byteRate > 0 ? Math.round((size / byteRate) * 1000) : 0;
+      offset += 8 + size;
+    }
+    return 0;
+  } catch (_) { return 0; }
+}
+
 // ─── Bubble sound player ─────────────────────────────────────────────────────
 // Plays sounds/bubbles.wav (preferred) or sounds/bubbles.mp3 on every run.
 // Returns the child process — Node must stay alive until it exits or VS Code's
@@ -146,9 +163,17 @@ if (args.length > 0) {
     console.error(`\x1b[31mBarnacles! File not found: ${file}\x1b[0m`);
     process.exit(1);
   }
-  playBubbles(); // 🫧 play sound before running the program
-  run(fs.readFileSync(file, 'utf8'), file);
-  tts.drain(); // keep event loop alive until all TTS audio finishes
+  const soundsDir2  = path.join(__dirname, '..', 'sounds');
+  const wavFile2    = path.join(soundsDir2, 'bubbles.wav');
+  const durationMs  = fs.existsSync(wavFile2) ? getWavDurationMs(wavFile2) : 3000;
+  const overlapMs   = 500;
+  const startDelay  = Math.max(0, durationMs - overlapMs);
+
+  playBubbles(); // 🫧 play bubble sound, then start TTS 500ms before it ends
+  setTimeout(() => {
+    run(fs.readFileSync(file, 'utf8'), file);
+    tts.drain(); // keep event loop alive until all TTS audio finishes
+  }, startDelay);
   // No process.exit() — Node stays alive until audio child processes exit.
 
 } else {

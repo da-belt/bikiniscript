@@ -110,6 +110,13 @@ class Interpreter {
       return null;
     }});
 
+    // mumble(...) — print to stdout only, no TTS
+    g.define('mumble', { isFn: true, call: (interp, args) => {
+      const text = args.map(a => interp.stringify(a)).join(' ');
+      console.log(text);
+      return null;
+    }});
+
     // input() — read a line (synchronous via REPL workaround)
     g.define('listen', { isFn: true, call: (_interp, _args) => null });
 
